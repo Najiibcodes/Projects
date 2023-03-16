@@ -1,0 +1,32 @@
+import pygame
+
+# Initialize Pygame
+pygame.init()
+
+# Create a window
+window_size = (800, 600)
+window = pygame.display.set_mode(window_size)
+pygame.display.set_caption("My Game")
+
+# Create a rectangle surface
+rectangle_size = (100, 100)
+rectangle_surface = pygame.Surface(rectangle_size)
+rectangle_surface.fill((255, 0, 0))  # Red
+
+# Game loop
+while True:
+    # Handle events
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            exit()
+
+    # Clear the window
+    window.fill((0, 0, 0))  # Black
+
+    # Draw the rectangle
+    window.blit(rectangle_surface, (window_size[0] // 2 - rectangle_size[0] // 2,
+                                    window_size[1] // 2 - rectangle_size[1] // 2))
+
+    # Update the display
+    pygame.display.update()
